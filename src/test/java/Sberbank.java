@@ -58,10 +58,29 @@ public class Sberbank {
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();",
                 driver.findElement(By.className("footer-info")));
 
+
         WebElement socialFB = driver.findElement(By.xpath
                 (".//a[@href = 'https://www.facebook.com/bankdruzey']/span"));
-        String textSocialFB = socialFB.getText();
-        Assert.assertTrue("Нет иконки фейсбука", socialFB.getAttribute("class").equals
-                ("social__icon social__icon_type_fb"));
+        Assert.assertEquals("social__icon social__icon_type_fb", socialFB.getAttribute("class"));
+
+        WebElement socialTwitter = driver.findElement(By.xpath
+                (".//a[@href = 'http://twitter.com/sberbank/']/span"));
+        Assert.assertEquals("social__icon social__icon_type_tw", socialTwitter.getAttribute("class"));
+
+        WebElement socialYoutube = driver.findElement(By.xpath
+                (".//a[@href = 'http://www.youtube.com/sberbank']/span"));
+        Assert.assertEquals("social__icon social__icon_type_yt", socialYoutube.getAttribute("class"));
+
+        WebElement socialInstagram = driver.findElement(By.xpath
+                (".//a[@href = 'http://instagram.com/sberbank']/span"));
+        Assert.assertEquals("social__icon social__icon_type_ins", socialInstagram.getAttribute("class"));
+
+        WebElement socialVK = driver.findElement(By.xpath
+                (".//a[@href = 'http://vk.com/sberbank']/span"));
+        Assert.assertEquals("social__icon social__icon_type_vk", socialVK.getAttribute("class"));
+
+        WebElement socialOK = driver.findElement(By.xpath
+                (".//a[@href = 'https://ok.ru/sberbank']/span"));
+        Assert.assertEquals("social__icon social__icon_type_ok", socialOK.getAttribute("class"));
     }
 }
